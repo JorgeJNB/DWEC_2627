@@ -11,7 +11,7 @@ function simularError() {
   );
 }
 
-// Muestra la información del navegador.
+// Muestra la información  del navegador.
 function mostrarNavegador() {
   const agente = navigator.userAgent;
 
