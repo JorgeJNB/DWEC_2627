@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Variables, tipos y conversiones · Jorge Núñez Barrales</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar bg-primary" data-bs-theme="dark">
+    <div class="container">
+      <span class="navbar-brand"><i class="bi bi-person-circle"></i> Jorge Núñez Barrales</span>
+      <span class="navbar-text">Tarea 3 · DWEC</span>
+    </div>
+  </nav>
+
+  <header class="bg-body-tertiary border-bottom py-4 mb-4">
+    <div class="container">
+      <h1 class="h2 mb-1">Variables, tipos y conversiones</h1>
+      <p class="lead mb-2 text-body-secondary">
+        Cuaderno de laboratorio: para cada ejercicio, el código, lo que esperaba y lo que salió de verdad.
+      </p>
+      <p class="mb-0 small">
+        Abre la consola con <kbd>F12</kbd> y pulsa «Ejecutar» en cada ejercicio.
+        <span class="badge text-bg-danger">Fallé</span> marca las predicciones en las que me equivoqué.
+      </p>
+    </div>
+  </header>
+
+  <main class="container mb-5">
+
+    <section class="card mb-4 shadow-sm">
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 1</span>
+        <h2 class="h5 mb-0">Variables y typeof</h2>
+      </div>
+      <div class="card-body">
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio1() {
+  console.log("--- Ejercicio 1 · Variables y typeof ---");
+
+  const precio = 12;
+  const nombre = "Jorge";
+  const estudiante = true;
+  const resultado = null;
+  let nota;
+  const visitas = 10n;
+
+  console.log("precio =", precio, "→", typeof precio);
+  console.log("nombre =", nombre, "→", typeof nombre);
+  console.log("estudiante =", estudiante, "→", typeof estudiante);
+  console.log("resultado =", resultado, "→", typeof resultado);
+  console.log("nota =", nota, "→", typeof nota);
+  console.log("visitas =", visitas, "→", typeof visitas);
+
+  nota = 8;
+  console.log("nota después =", nota, "→", typeof nota);
+}</code></pre>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Variable</th><th scope="col">Valor</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>precio</code></th><td><code>12</code></td><td><code>number</code></td><td><code>number</code></td></tr>
+              <tr><th scope="row"><code>nombre</code></th><td><code>&quot;Jorge&quot;</code></td><td><code>string</code></td><td><code>string</code></td></tr>
+              <tr><th scope="row"><code>estudiante</code></th><td><code>true</code></td><td><code>boolean</code></td><td><code>boolean</code></td></tr>
+              <tr><th scope="row"><code>resultado</code></th><td><code>null</code></td><td><code>object</code></td><td><code>object</code></td></tr>
+              <tr><th scope="row"><code>nota (antes)</code></th><td><code>undefined</code></td><td><code>undefined</code></td><td><code>undefined</code></td></tr>
+              <tr><th scope="row"><code>visitas</code></th><td><code>10n</code></td><td><code>bigint</code></td><td><code>bigint</code></td></tr>
+              <tr><th scope="row"><code>nota (después)</code></th><td><code>8</code></td><td><code>number</code></td><td><code>number</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small mb-0"><strong>El caso de null:</strong> <code>typeof null</code> devuelve <code>"object"</code> por un error histórico de JavaScript, aunque null representa la ausencia de un valor.</p>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio1()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 1
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
+    <section class="card mb-4 shadow-sm">
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 2</span>
+        <h2 class="h5 mb-0">Conversiones explícitas</h2>
+      </div>
+      <div class="card-body">
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio2() {
+  console.log("--- Ejercicio 2 · Conversiones explícitas ---");
+
+  const numeroATexto = String(123); // Espero "123", string.
+  console.log("String(123) →", numeroATexto, typeof numeroATexto);
+  const textoANumero = Number("123"); // Espero 123, number.
+  console.log('Number("123") →', textoANumero, typeof textoANumero);
+  const textoMezclado = Number("12abc"); // Espero NaN, number.
+  console.log('Number("12abc") →', textoMezclado, typeof textoMezclado);
+  const textoVacio = Number(""); // Espero 0, number.
+  console.log('Number("") →', textoVacio, typeof textoVacio);
+  const verdaderoANumero = Number(true); // Espero 1, number.
+  console.log("Number(true) →", verdaderoANumero, typeof verdaderoANumero);
+  const ceroABooleano = Boolean(0); // Espero false, boolean.
+  console.log("Boolean(0) →", ceroABooleano, typeof ceroABooleano);
+  const textoABooleano = Boolean("texto"); // Espero true, boolean.
+  console.log('Boolean("texto") →', textoABooleano, typeof textoABooleano);
+  const vacioABooleano = Boolean(""); // Espero false, boolean.
+  console.log('Boolean("") →', vacioABooleano, typeof vacioABooleano);
+}</code></pre>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Conversión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>String(123)</code></th><td><code>&quot;123&quot; (string)</code></td><td><code>&quot;123&quot; (string)</code></td></tr>
+              <tr><th scope="row"><code>Number(&quot;123&quot;)</code></th><td><code>123 (number)</code></td><td><code>123 (number)</code></td></tr>
+              <tr><th scope="row"><code>Number(&quot;12abc&quot;)</code></th><td><code>NaN (number)</code></td><td><code>NaN (number)</code></td></tr>
+              <tr><th scope="row"><code>Number(&quot;&quot;)</code></th><td><code>0 (number)</code></td><td><code>0 (number)</code></td></tr>
+              <tr><th scope="row"><code>Number(true)</code></th><td><code>1 (number)</code></td><td><code>1 (number)</code></td></tr>
+              <tr><th scope="row"><code>Boolean(0)</code></th><td><code>false (boolean)</code></td><td><code>false (boolean)</code></td></tr>
+              <tr><th scope="row"><code>Boolean(&quot;texto&quot;)</code></th><td><code>true (boolean)</code></td><td><code>true (boolean)</code></td></tr>
+              <tr><th scope="row"><code>Boolean(&quot;&quot;)</code></th><td><code>false (boolean)</code></td><td><code>false (boolean)</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small mb-0"><code>Number("12abc")</code> da <code>NaN</code> porque el texto entero no es un número. Aun así, su typeof es <code>"number"</code>.</p>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio2()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 2
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
+    <section class="card mb-4 shadow-sm">
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 3</span>
+        <h2 class="h5 mb-0">Coerción y comparaciones</h2>
+      </div>
+      <div class="card-body">
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio3() {
+  console.log("--- Ejercicio 3 · Coerción y comparaciones ---");
+
+  console.log('"5" - 2 →', "5" - 2); // Espero 3.
+  console.log('"5" + 2 →', "5" + 2); // Espero "52".
+  console.log('"10" * 2 →', "10" * 2); // Espero 20.
+  console.log("true + 3 →", true + 3); // Espero 4.
+  console.log('"Corte " + 12 →', "Corte " + 12); // Espero "Corte 12".
+  console.log('"18" / 3 →', "18" / 3); // Espero 6.
+
+  console.log('5 == "5" →', 5 == "5"); // Espero true.
+  console.log('5 === "5" →', 5 === "5"); // Espero false.
+  console.log("0 == false →", 0 == false); // Espero true.
+  console.log("0 === false →", 0 === false); // Espero false.
+  console.log("null == undefined →", null == undefined); // Espero true.
+  console.log("null === undefined →", null === undefined); // Espero false.
+}</code></pre>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Expresión</th><th scope="col">Espero</th><th scope="col">Sale</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>&quot;5&quot; - 2</code></th><td><code>3 (number)</code></td><td><code>3 (number)</code></td></tr>
+              <tr><th scope="row"><code>&quot;5&quot; + 2</code></th><td><code>&quot;52&quot; (string)</code></td><td><code>&quot;52&quot; (string)</code></td></tr>
+              <tr><th scope="row"><code>&quot;10&quot; * 2</code></th><td><code>20 (number)</code></td><td><code>20 (number)</code></td></tr>
+              <tr><th scope="row"><code>true + 3</code></th><td><code>4 (number)</code></td><td><code>4 (number)</code></td></tr>
+              <tr><th scope="row"><code>&quot;Corte &quot; + 12</code></th><td><code>&quot;Corte 12&quot; (string)</code></td><td><code>&quot;Corte 12&quot; (string)</code></td></tr>
+              <tr><th scope="row"><code>&quot;18&quot; / 3</code></th><td><code>6 (number)</code></td><td><code>6 (number)</code></td></tr>
+              <tr><th scope="row"><code>5 == &quot;5&quot;</code></th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row"><code>5 === &quot;5&quot;</code></th><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><th scope="row"><code>0 == false</code></th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row"><code>0 === false</code></th><td><code>false</code></td><td><code>false</code></td></tr>
+              <tr><th scope="row"><code>null == undefined</code></th><td><code>true</code></td><td><code>true</code></td></tr>
+              <tr><th scope="row"><code>null === undefined</code></th><td><code>false</code></td><td><code>false</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small mb-2">Con <code>+</code>, si hay una cadena se unen los textos. Con <code>-</code>, <code>*</code> y <code>/</code>, se intenta convertir el texto en número. Los dos últimos ejemplos usan el precio de un corte y un reparto entre tres.</p>
+        <p class="small mb-0">Uso <code>===</code> porque compara el valor y el tipo sin convertirlos. Por eso <code>5 === "5"</code> es false, aunque con <code>==</code> salga true.</p>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio3()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 3
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12).</span>
+      </div>
+    </section>
+
+    <section class="card mb-4 shadow-sm">
+      <div class="card-header d-flex align-items-center gap-2">
+        <span class="badge text-bg-primary">Ejercicio 4</span>
+        <h2 class="h5 mb-0">Tu ficha con plantillas de cadena</h2>
+      </div>
+      <div class="card-body">
+        <pre class="bg-dark text-light p-3 rounded small mb-4"><code>function ejercicio4() {
+  console.log("--- Ejercicio 4 · Tu ficha con plantillas de cadena ---");
+
+  const nombre = "Jorge Núñez Barrales";
+  const ciclo = "Desarrollo de Aplicaciones Web";
+  const curso = "2º";
+  const aficion = "programar";
+  let horasEstudio = 5;
+  horasEstudio += 2;
+
+  const ficha = `Soy ${nombre}, estudio ${curso} de ${ciclo}, me gusta ${aficion} y esta semana he estudiado ${horasEstudio} horas.`;
+  alert(ficha);
+  console.log(ficha);
+
+  const fichaConMas = "Soy " + nombre + ", estudio " + curso + " de " + ciclo + ", me gusta " + aficion + " y esta semana he estudiado " + horasEstudio + " horas.";
+  console.log(fichaConMas);
+  console.log("¿Son iguales?", ficha === fichaConMas);
+}</code></pre>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped align-middle mb-2">
+            <thead class="table-primary">
+              <tr><th scope="col">Dato</th><th scope="col">Valor</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><code>Nombre</code></th><td><code>Jorge Núñez Barrales</code></td></tr>
+              <tr><th scope="row"><code>Ciclo</code></th><td><code>Desarrollo de Aplicaciones Web</code></td></tr>
+              <tr><th scope="row"><code>Curso</code></th><td><code>2º</code></td></tr>
+              <tr><th scope="row"><code>Afición</code></th><td><code>programar</code></td></tr>
+              <tr><th scope="row"><code>Horas de estudio (ejemplo)</code></th><td><code>5 + 2 = 7</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">La plantilla y la concatenación muestran el mismo mensaje. Al compararlas con <code>===</code>, sale <code>true</code>.</p>
+        <div class="alert alert-danger mb-0" role="alert">
+          <p class="mb-2">Prueba escrita en la consola del navegador:</p>
+          <pre class="mb-2"><code>const pruebaConst = 1;
+pruebaConst = 2;</code></pre>
+          <p class="mb-2"><code>Uncaught TypeError: invalid assignment to const 'pruebaConst'</code></p>
+          <p class="mb-0">No puedo dar otro valor a una variable declarada con const. Si el valor tiene que cambiar, tengo que usar let.</p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" onclick="ejercicio4()">
+          <i class="bi bi-play-fill"></i> Ejecutar ejercicio 4
+        </button>
+        <span class="small text-body-secondary ms-2">El resultado sale en la consola (F12) y en un alert.</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-body-tertiary border-top py-3">
+    <div class="container small text-body-secondary">
+      Jorge Núñez Barrales · DWEC 26/27 · Tarea 3 · Las capturas, la reflexión y las fuentes están en el README.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
