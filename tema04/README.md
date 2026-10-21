@@ -1,58 +1,54 @@
 # Tarea 4 · Calculadora y bucles
 
-**Autor:** [Tu nombre y apellidos] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+**Autor:** Jorge Núñez Barrales · DWEC · 2.º DAW · Curso 2026-27
 
-> **Plantilla de la tarea 4.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema04`.
-> 2. `index.html` trae lo imprescindible para empezar: las dos casillas, la zona de resultado y el botón «Sumar». El resto de la página y su maquetación con Bootstrap los haces tú.
-> 3. `js/app.js` trae `sumar()` hecha como modelo y las demás funciones con `TODO`.
-> 4. `js/ayudas.js` no se toca: son las funciones que leen las casillas y escriben el resultado.
-> 5. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 6. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
+Esta página sirve para hacer cuentas con dos números y probar cómo funcionan los bucles. 
 
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live**, escribir dos números y pulsar los botones con la consola abierta (F12).]
+La calculadora tiene suma, resta, multiplicación, división, potencia y módulo. Si falta algún número o intento dividir entre cero, aparece un aviso. También puedo comparar los números y saber si el primero es par o impar. Los bucles usan solo el número 1 y permiten enteros hasta 20.
 
 ## Capturas
 
 ### a) La página entera
 
-<img src="capturas/a-pagina.png" alt="La página entera con mi nombre en la navbar" width="600">
+![Página entera con mi nombre](capturas/a-pagina.png)
 
-[Qué se ve: tu nombre en la navbar y cómo has repartido las cards con la rejilla.]
+Mi nombre aparece arriba y en el pie. Las tarjetas separan los números, el resultado y los ejercicios.
 
 ### b) La página en el móvil
 
-<img src="capturas/b-movil.png" alt="La página en el modo móvil de las herramientas de desarrollo" width="300">
+![Página en el modo móvil de F12](capturas/b-movil.png)
 
-[Qué cambia respecto a la pantalla grande.]
+En una pantalla pequeña las tarjetas quedan una debajo de otra para poder usarlas sin tener que desplazarme hacia los lados.
 
 ### c) El error de dividir entre 0
 
-![El error de dividir entre 0 con la consola abierta](capturas/c-dividir-cero.png)
+![División entre cero con la consola abierta](capturas/c-dividir-cero.png)
 
-[Qué se ve en la página y en la consola.]
+Con 12 y 0 aparece un aviso rojo. La consola indica que el segundo número es cero.
 
 ### d) Los tres bucles con el número 0
 
-![Los tres bucles de texto con el número 0 y la consola abierta](capturas/d-bucles-cero.png)
+![Bucles con cero y consola abierta](capturas/d-bucles-cero.png)
 
-[Cuántas veces se repite cada bucle y por qué.]
+Con 0, for y while hacen cero vueltas. do while hace una, y los tres totales quedan en la consola.
 
 ### e) Un bucle con badges
 
-![Un bucle con badges](capturas/e-badges.png)
+![Bucle con ocho badges](capturas/e-badges.png)
 
-[Qué número has puesto y cómo eliges el color de cada badge.]
+Con 8 aparecen ocho badges: los pares en azul y los impares en gris. Debajo está el total.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿en qué se diferencian for, while y do…while y cuándo usarías cada uno? Pon como ejemplo lo que pasó con el 0.]
+Con for tengo el inicio, la condición y el aumento juntos.  
+Lo usaría cuando sé cuántas vueltas quiero dar.  
+while comprueba la condición antes de entrar.  
+Me sirve cuando quiero repetir algo mientras se cumpla una condición.  
+do while comprueba la condición después, así que siempre entra una vez.  
+Por eso, con 0, for y while no entran y do while sí.  
+Con un número negativo pasa lo mismo.
 
-## Fuentes
-
-- [Título de la página](https://enlace-a-la-fuente)
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado ChatGPT para entender el código, y agilizar un poco la tarea, comprobar codigo y guiarme paso a paso en la tarea. 
