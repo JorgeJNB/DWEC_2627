@@ -2,13 +2,8 @@
   Tarea 4 · DWEC · Jorge Núñez Barrales
   Calculadora y bucles.
 
-  Cómo usar esta plantilla:
-  · Hay una función por botón. Cada una se ejecuta al pulsar su botón de index.html.
-  · sumar() está hecha: es el modelo. Escribe las demás donde pone TODO y, cuando termines, borra el TODO.
-  · Para leer las casillas y escribir el resultado usa las funciones de js/ayudas.js:
-      leerNumero("numero1"), mostrar(texto, color), anadirLinea(texto), anadirBadge(texto, color), limpiarSalida()
-  · Además de en la página, cada función deja su rastro en la consola con console.log().
-  · let y const, nunca var. Compara siempre con ===. Comillas rectas.
+  Cada botón llama a su función. Las casillas y el resultado se manejan
+  con las funciones de ayudas.js. Los pasos también salen en la consola.
 */
 
 console.log("app.js cargado");
@@ -229,15 +224,69 @@ function bucleDoWhile() {
 // ============================================================
 
 function badgesFor() {
-  // TODO: como bucleFor(), pero cada vuelta añade un badge con el número de la repetición:
-  //         anadirBadge(i, "primary");
-  // TODO: los pares, de un color y los impares, de otro. Elige el color con el operador ternario.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número entero que no supere " + MAXIMO_REPETICIONES + ".", "danger");
+    console.log("Badges for: número no válido", veces);
+  } else {
+    let contador = 0;
+    for (let i = 1; i <= veces; i++) {
+      contador++;
+      const color = i % 2 === 0 ? "primary" : "secondary";
+      anadirBadge(i, color);
+      console.log("Badges for: repetición " + i + " de " + veces);
+    }
+    const total = "Total: " + contador + (contador === 1 ? " repetición" : " repeticiones");
+    anadirLinea(total);
+    console.log("Badges for: " + total);
+  }
 }
 
 function badgesWhile() {
-  // TODO: lo mismo que badgesFor(), con un while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número entero que no supere " + MAXIMO_REPETICIONES + ".", "danger");
+    console.log("Badges while: número no válido", veces);
+  } else {
+    let contador = 0;
+    let i = 1;
+    while (i <= veces) {
+      contador++;
+      const color = i % 2 === 0 ? "primary" : "secondary";
+      anadirBadge(i, color);
+      console.log("Badges while: repetición " + i + " de " + veces);
+      i++;
+    }
+    const total = "Total: " + contador + (contador === 1 ? " repetición" : " repeticiones");
+    anadirLinea(total);
+    console.log("Badges while: " + total);
+  }
 }
 
 function badgesDoWhile() {
-  // TODO: lo mismo que badgesFor(), con un do…while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número entero que no supere " + MAXIMO_REPETICIONES + ".", "danger");
+    console.log("Badges do…while: número no válido", veces);
+  } else {
+    let contador = 0;
+    let i = 1;
+    do {
+      contador++;
+      const color = i % 2 === 0 ? "primary" : "secondary";
+      anadirBadge(i, color);
+      console.log("Badges do…while: repetición " + i + " de " + veces);
+      i++;
+    } while (i <= veces);
+    const total = "Total: " + contador + (contador === 1 ? " repetición" : " repeticiones");
+    anadirLinea(total);
+    console.log("Badges do…while: " + total);
+  }
 }
+
