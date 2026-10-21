@@ -160,19 +160,67 @@ function bucleFor() {
   const veces = leerNumero("numero1");
   limpiarSalida();
 
-  // TODO: si el número falta, tiene decimales o pasa de MAXIMO_REPETICIONES, muestra un error en rojo.
-  // TODO: si no, repite con un for tantas veces como diga «veces». En cada vuelta:
-  //         anadirLinea(`for · repetición ${i} de ${veces}`);
-  //       y cuenta las vueltas en una variable contador.
-  // TODO: al terminar, añade una línea con el total: «Total: 5 repeticiones» o «Total: 1 repetición».
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número entero que no supere " + MAXIMO_REPETICIONES + ".", "danger");
+    console.log("for: número no válido", veces);
+  } else {
+    let contador = 0;
+    for (let i = 1; i <= veces; i++) {
+      contador++;
+      const linea = "for · repetición " + i + " de " + veces;
+      anadirLinea(linea);
+      console.log(linea);
+    }
+    const total = "Total: " + contador + (contador === 1 ? " repetición" : " repeticiones");
+    anadirLinea(total);
+    console.log("for: " + total);
+  }
 }
 
 function bucleWhile() {
-  // TODO: lo mismo que bucleFor(), con un while.
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número entero que no supere " + MAXIMO_REPETICIONES + ".", "danger");
+    console.log("while: número no válido", veces);
+  } else {
+    let contador = 0;
+    let i = 1;
+    while (i <= veces) {
+      contador++;
+      const linea = "while · repetición " + i + " de " + veces;
+      anadirLinea(linea);
+      console.log(linea);
+      i++;
+    }
+    const total = "Total: " + contador + (contador === 1 ? " repetición" : " repeticiones");
+    anadirLinea(total);
+    console.log("while: " + total);
+  }
 }
 
 function bucleDoWhile() {
-  // TODO: lo mismo que bucleFor(), con un do…while. Pruébalo con 0 y con un negativo: ¿qué pasa?
+  const veces = leerNumero("numero1");
+  limpiarSalida();
+
+  if (Number.isNaN(veces) || !Number.isInteger(veces) || veces > MAXIMO_REPETICIONES) {
+    mostrar("Escribe un número entero que no supere " + MAXIMO_REPETICIONES + ".", "danger");
+    console.log("do…while: número no válido", veces);
+  } else {
+    let contador = 0;
+    let i = 1;
+    do {
+      contador++;
+      const linea = "do…while · repetición " + i + " de " + veces;
+      anadirLinea(linea);
+      console.log(linea);
+      i++;
+    } while (i <= veces);
+    const total = "Total: " + contador + (contador === 1 ? " repetición" : " repeticiones");
+    anadirLinea(total);
+    console.log("do…while: " + total);
+  }
 }
 
 
