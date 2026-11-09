@@ -85,10 +85,12 @@ function quitarCurso() {
 const colores = ["rojo", "verde", "azul"];
 
 function mostrarColores() {
+  console.log("Ejercicio 2: mostrar colores", colores);
   const lista = document.querySelector("#listaColores");
   lista.textContent = "";   // vaciamos la lista antes de volver a pintarla
 
   colores.forEach(function (color) {
+    console.log("Ejercicio 2: pintar color", color);
     const li = document.createElement("li");
     li.classList.add("list-group-item");
     li.textContent = color;
@@ -99,12 +101,14 @@ function mostrarColores() {
 }
 
 function avisar2(mensaje) {
+  console.log("Ejercicio 2: aviso", mensaje);
   const aviso = document.querySelector("#aviso2");
   aviso.textContent = mensaje;
   aviso.classList.remove("d-none");
 }
 
 function anadirColor() {
+  console.log("Ejercicio 2: añadir color");
   const casilla = document.querySelector("#color");
   const color = casilla.value.trim();
 
@@ -121,12 +125,31 @@ function anadirColor() {
 }
 
 function quitarUltimo() {
-  // TODO: si la lista está vacía, avisa con avisar2() y no hagas nada más.
-  // TODO: si no, saca el último con pop(), vuelve a pintar la lista y di en la consola qué color ha salido.
+  console.log("Ejercicio 2: quitar el último");
+  if (colores.length === 0) {
+    avisar2("No quedan colores para quitar.");
+    mostrarColores();
+    return;
+  }
+
+  const eliminado = colores.pop();
+  document.querySelector("#aviso2").classList.add("d-none");
+  mostrarColores();
+  console.log("Ejercicio 2: pop, ha salido", eliminado);
 }
 
 function quitarPrimero() {
-  // TODO: lo mismo que quitarUltimo(), pero sacando el primero con shift().
+  console.log("Ejercicio 2: quitar el primero");
+  if (colores.length === 0) {
+    avisar2("No quedan colores para quitar.");
+    mostrarColores();
+    return;
+  }
+
+  const eliminado = colores.shift();
+  document.querySelector("#aviso2").classList.add("d-none");
+  mostrarColores();
+  console.log("Ejercicio 2: shift, ha salido", eliminado);
 }
 
 mostrarColores();   // pinta los tres colores de partida nada más cargar
