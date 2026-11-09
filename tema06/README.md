@@ -1,64 +1,64 @@
-# Tarea 6 · Objetos y arrays
+Tarea 6 · Objetos y arrays
 
-**Autor:** [Tu nombre y apellidos] · Desarrollo Web en Entorno Cliente (DWEC) · 2.º DAW · Curso 2026-27
+**Jorge Núñez Barrales · 2.º DAW · DWEC · Curso 2026-27**
 
-> **Plantilla de la tarea 6.** Cómo usarla:
->
-> 1. Copia esta carpeta en tu repositorio de DWEC y cámbiale el nombre a `tema06`.
-> 2. `index.html` ya está maquetado: seis tarjetas, una por ejercicio. No cambies los `id` ni el `onclick` de los botones.
-> 3. `js/app.js` trae una función por botón con `TODO`. Ya están hechas `comoTexto()`, `pintarProductos()` y casi todo el ejercicio 2: úsalas de modelo.
-> 4. Todas las funciones con `function`: en esta tarea, sin funciones flecha.
-> 5. Sustituye las imágenes de `capturas/` por las tuyas, **con el mismo nombre**.
-> 6. Todo lo que va entre [corchetes] es un hueco: cámbialo por lo tuyo. Al terminar, borra este aviso.
-
-[Una o dos líneas: qué hay en esta carpeta y cómo se ve. Por ejemplo: abrir la carpeta en VS Code, pulsar **Go Live** y probar los botones con la consola abierta (F12).]
+La pagina tiene seis ejercicios para practicar con objetos y listas. Para probarla, abrimos `index.html` en el navegador y pulsamos los botones. Con F12 se podemos ver también los mensajes de la consola.
 
 ## Capturas
 
-### a) La página recién cargada
+### a) Página recién cargada
 
-<img src="capturas/a-pagina.png" alt="La página recién cargada con mi nombre en la navbar" width="600">
+![Página recién cargada](capturas/a-pagina.png)
 
-[Qué se ve nada más cargar: tu nombre, los colores, la tabla de productos y las ciudades.]
+Se ven mi nombre, los tres colores iniciales, los seis productos y las ocho ciudades.
 
-### b) Ejercicios 1 y 2: la ficha y los colores
+### b) Ficha y colores
 
-<img src="capturas/b-ej1-ej2.png" alt="La ficha de estudiante y la lista de colores" width="600">
+![Ficha y colores](capturas/b-ej1-ej2.png)
 
-[La ficha después de cumplir años y la lista de colores después de añadir y quitar alguno. Qué método has usado para cada cosa.]
+La edad pasa de 20 a 21 al cumplir años. Con `push` añadí amarillo, con `pop` quité el último color y con `shift` el primero; quedan verde y azul.
 
-### c) Ejercicio 3: el catálogo ordenado por precio
+### c) Catálogo ordenado
 
-![La tabla de productos ordenada por precio](capturas/c-ej3-ordenado.png)
+![Catálogo ordenado por precio](capturas/c-ej3-ordenado.png)
 
-[Cómo es tu función de comparación y por qué ordenas una copia.]
+Los productos aparecen del más barato al más caro. Para ordenarlos comparo sus precios con `a.precio - b.precio`, usando una copia para conservar el orden inicial.
 
-### d) Ejercicio 4: las notas y la media
+### d) Notas y media
 
-![Las notas con su color y la media](capturas/d-ej4-notas.png)
+![Notas y media](capturas/d-ej4-notas.png)
 
-[Cinco notas como mínimo, aprobadas y suspensas, con su media.]
+Añadí las notas 0, 4, 5, 7,5 y 10: los suspensos salen en rojo y los aprobados en verde. La media es 5,30 y aparece con dos decimales.
 
-### e) Ejercicio 5: los tres métodos seguidos
+### e) Los tres pasos
 
-![El resultado de filter, map y reduce encadenados](capturas/e-ej5-cadena.png)
+![Pares, dobles y suma](capturas/e-ej5-cadena.png)
 
-[Qué hace cada paso y qué número sale al final.]
+Primero quedan los pares, después se duplican y finalmente se suman. El resultado es 60 y la lista original sigue igual.
 
-### f) Ejercicio 6: después de splice y de buscar una ciudad
+### f) Ciudades
 
-![Las ciudades después de splice y una búsqueda](capturas/f-ej6-splice.png)
+![Ciudades después de quitar y buscar](capturas/f-ej6-splice.png)
 
-[Qué ciudades ha quitado splice, en qué posición ha quedado la que has buscado y por qué.]
+Después de quitar Málaga y Córdoba con `splice`, quedan seis ciudades. Al buscar Jaén, aparece en la posición 2; antes estaba en la 4.
 
 ## Reflexión
 
-[De 5 a 8 líneas: ¿qué métodos de los que has usado cambian el array original y cuáles devuelven uno nuevo? Pon como ejemplo lo que pasa en el ejercicio 6 con slice y con splice, y explica por qué en el ejercicio 3 ordenas una copia.]
+`push`, `pop`, `shift`, `sort` y `splice` cambian la lista sobre la que trabajan.\
+`slice`, `map` y `filter` devuelven otra lista.\
+`reduce` sirve aquí para obtener una suma, sin cambiar los números.\
+En las ciudades, `slice(2, 5)` copia tres nombres y siguen quedando ocho.\
+`splice(2, 2)` quita Málaga y Córdoba, por lo que quedan seis.\
+Por eso ordeno una copia de los productos: al pulsar «Todos» se conserva el orden inicial.\
+Al borrar el curso con `delete`, aparece `undefined` porque esa propiedad ya no existe.
 
 ## Fuentes
 
-- [Título de la página](https://enlace-a-la-fuente)
+- [Plantilla de la asignatura](https://github.com/DRodero/DWEC_2627).
+- [MDN: sort](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).
+- [MDN: slice](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
+- [MDN: splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice).
 
 ## Uso de IA
 
-[Si has usado IA: qué herramienta, para qué y qué hiciste después con su respuesta. Si no la has usado, borra este apartado.]
+He usado IA para agilizar un poco la tarea, comprobar que los ejercicios estuviesen bien y ayudarme un poco paso a paso.
