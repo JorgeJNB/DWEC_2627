@@ -1,17 +1,6 @@
 /*
   Tarea 6 · DWEC · Jorge Núñez Barrales
   Objetos y arrays.
-
-  Cómo usar esta plantilla:
-  · Hay una función por botón. Escribe tu código donde pone TODO y, cuando termines, borra el TODO.
-  · Ya tienes hechas, como modelo, comoTexto(), pintarProductos() y el ejercicio 2 casi entero:
-    léelas antes de empezar, porque el resto se hace igual.
-  · Los resultados se pintan en la página como en el tema 5: createElement, textContent, classList y append.
-    Antes de volver a pintar una lista, vacíala con textContent = "".
-  · Las funciones se escriben con function, también las que pasas a forEach, sort, map, filter o reduce.
-    Las funciones flecha las veremos en el tema 7: en esta tarea, no las uses.
-  · Cada función deja también su rastro en la consola con console.log().
-  · let y const, nunca var. Compara siempre con ===. Comillas rectas.
 */
 
 console.log("app.js cargado");
@@ -23,6 +12,7 @@ console.log("app.js cargado");
 // ============================================================
 
 function comoTexto(lista) {
+  console.log("Array como texto", lista);
   return "[" + lista.join(", ") + "]";
 }
 
@@ -341,22 +331,78 @@ mostrarNotas();
 const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function verDobles() {
-  // TODO: con map(), un array nuevo con el doble de cada número.
-  // TODO: escribe en #salida5 el resultado y, debajo, numeros (para que se vea que no ha cambiado).
+  const dobles = numeros.map(function (numero) {
+    console.log("Ejercicio 5: duplicar", numero);
+    return numero * 2;
+  });
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "";
+  const resultado = document.createElement("p");
+  resultado.textContent = "Dobles: " + comoTexto(dobles);
+  const original = document.createElement("p");
+  original.textContent = "Original: " + comoTexto(numeros);
+  salida.append(resultado, original);
+  console.log("Ejercicio 5: dobles", dobles);
 }
 
 function verPares() {
-  // TODO: con filter(), los números pares (n % 2 === 0). Escríbelos en #salida5 como en verDobles().
+  const pares = numeros.filter(function (numero) {
+    console.log("Ejercicio 5: comprobar par", numero);
+    return numero % 2 === 0;
+  });
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "";
+  const resultado = document.createElement("p");
+  resultado.textContent = "Pares: " + comoTexto(pares);
+  const original = document.createElement("p");
+  original.textContent = "Original: " + comoTexto(numeros);
+  salida.append(resultado, original);
+  console.log("Ejercicio 5: pares", pares);
 }
 
 function verSuma() {
-  // TODO: con reduce(), la suma de todos los números (empieza en 0). Escríbela en #salida5.
+  const suma = numeros.reduce(function (total, numero) {
+    console.log("Ejercicio 5: sumar", total, numero);
+    return total + numero;
+  }, 0);
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "";
+  const resultado = document.createElement("p");
+  resultado.textContent = "Suma: " + suma;
+  const original = document.createElement("p");
+  original.textContent = "Original: " + comoTexto(numeros);
+  salida.append(resultado, original);
+  console.log("Ejercicio 5: suma", suma);
 }
 
 function verCadena() {
-  // TODO: los tres seguidos: los pares, después sus dobles y al final la suma de esos dobles.
-  //       Escribe en #salida5 una línea por paso.
+  const pares = numeros.filter(function (numero) {
+    console.log("Ejercicio 5: filtrar par", numero);
+    return numero % 2 === 0;
+  });
+  const dobles = pares.map(function (numero) {
+    console.log("Ejercicio 5: duplicar par", numero);
+    return numero * 2;
+  });
+  const suma = dobles.reduce(function (total, numero) {
+    console.log("Ejercicio 5: sumar doble", total, numero);
+    return total + numero;
+  }, 0);
+
+  const salida = document.querySelector("#salida5");
+  salida.textContent = "";
+  const paso1 = document.createElement("p");
+  paso1.textContent = "1. Pares: " + comoTexto(pares);
+  const paso2 = document.createElement("p");
+  paso2.textContent = "2. Dobles de los pares: " + comoTexto(dobles);
+  const paso3 = document.createElement("p");
+  paso3.textContent = "3. Suma de los dobles: " + suma;
+  const original = document.createElement("p");
+  original.textContent = "Original: " + comoTexto(numeros);
+  salida.append(paso1, paso2, paso3, original);
+  console.log("Ejercicio 5: tres pasos", pares, dobles, suma);
 }
+
 
 
 // ============================================================
